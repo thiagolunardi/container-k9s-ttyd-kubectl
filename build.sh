@@ -5,7 +5,7 @@ REMOTE_NODE_SSH=ssh://james@jamess-mac-pro.local
 LOCAL_ARCH=linux/arm64,linux/riscv64,linux/ppc64le,linux/s390x,linux/mips64le,linux/mips64,linux/arm/v7,linux/arm/v6
 REMOTE_ARCH=linux/amd64,linux/386
 DRIVER_OPT='--driver-opt env.BUILDKIT_STEP_LOG_MAX_SIZE=10000000 --driver-opt env.BUILDKIT_STEP_LOG_MAX_SPEED=10000000'
-TAG=spurin/k9s-ttyd-kubectl:$(git branch | grep '*' | awk {'print $2'} | sed 's/main/latest/g' | sed 's/master/latest/g')
+TAG=thiagolunardi/k9s-ttyd-kubectl:$(git branch | grep '*' | awk {'print $2'} | sed 's/main/latest/g' | sed 's/master/latest/g')
 
 if [ $# == 0 ]; then
   echo build.sh [options]
