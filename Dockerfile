@@ -1,9 +1,9 @@
 # Downloader build stage
 FROM ubuntu as downloader
 
-ARG KUBECTL_VERSION=v1.24.3
-ARG K9S_VERSION=v0.26.3
-ARG TTYD_VERSION=1.6.3
+ARG KUBECTL_VERSION=v1.30.5
+ARG K9S_VERSION=v0.32.7
+ARG TTYD_VERSION=1.7.7
 
 # Download all files to /src
 WORKDIR /src
