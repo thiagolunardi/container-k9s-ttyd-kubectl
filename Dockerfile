@@ -1,5 +1,5 @@
 # Downloader build stage
-FROM ubuntu as downloader
+FROM ubuntu AS downloader
 
 ARG KUBECTL_VERSION=v1.30.5
 ARG K9S_VERSION=v0.32.7
@@ -13,7 +13,7 @@ RUN apt update
 RUN apt install -y wget curl
 
 # Download k9s
-RUN case $(uname -m) in i386) architecture="x86_64";; i686) architecture="x86_64";; x86_64) architecture="x86_64";; arm|aarch64) dpkg --print-architecture | grep -q "arm64" && architecture="arm64" || architecture="arm" ;; esac && (curl -L -s --output k9s.tar.gz "https://github.com/derailed/k9s/releases/download/${K9S_VERSION}/k9s_Linux_${architecture}.tar.gz")
+RUN case $(uname -m) in i386) architecture="amd64";; i686) architecture="amd64";; x86_64) architecture="amd64";; arm|aarch64) dpkg --print-architecture | grep -q "arm64" && architecture="arm64" || architecture="arm" ;; esac && (curl -L -s --output k9s.tar.gz "https://github.com/derailed/k9s/releases/download/${K9S_VERSION}/k9s_Linux_${architecture}.tar.gz")
 RUN tar zxvf k9s.tar.gz
 RUN chmod u+x k9s
 
